@@ -1,0 +1,46 @@
+﻿# Используем 4 пробела в C#
+[*.cs]
+indent_style = space
+indent_size = 4
+
+# Отключаем проблемные правила анализаторов
+# SA0001: XML comment analysis is disabled
+dotnet_diagnostic.SA0001.severity = none
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SA1214: Readonly fields should appear before non-readonly fields
+dotnet_diagnostic.SA1214.severity = none
+
+# S3236: Remove this argument from the method call
+dotnet_diagnostic.S3236.severity = none
+
+# CS8618: Non-nullable field warnings
+dotnet_diagnostic.CS8618.severity = none
+
+# CS8600: Converting null literal or possible null value
+dotnet_diagnostic.CS8600.severity = none
+
+# CS8603: Possible null reference return
+dotnet_diagnostic.CS8603.severity = none
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = none
+
+# SA1601: Partial elements should be documented
+dotnet_diagnostic.SA1601.severity = none
+
+# SA1602: Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = none
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
+
+# Используем 2 пробела в XML
+[*.xml]
+indent_style = space
+indent_size = 2

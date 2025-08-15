@@ -1,8 +1,14 @@
-﻿using ManagmentEmploee;
-using NUnit.Framework;
+﻿// <copyright file="UnitTest1.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace TestEmploee;
 
-public class Tests
+using FluentAssertions;
+using ManagmentEmploee;
+using NUnit.Framework;
+
+public class UnitTest1
 {
     [Test]
     public void Employee_CreationAndBasicProperties_WorkCorrectly()
@@ -11,13 +17,13 @@ public class Tests
         {
             FirstName = "Иван",
             LastName = "Петров",
-            BirthDate = new DateTime(1990, 5, 15)
+            BirthDate = new DateTime(1990, 5, 15),
         };
 
-        Assert.AreEqual(101, employee.EmploeeId);
-        Assert.AreEqual("Иван", employee.FirstName);
-        Assert.AreEqual("Петров", employee.LastName);
-        Assert.AreEqual("Иван Петров", employee.FullName);
+        Assert.That(employee.EmploeeId, Is.EqualTo(101));
+        Assert.That(employee.FirstName, Is.EqualTo("Иван"));
+        Assert.That(employee.LastName, Is.EqualTo("Петров"));
+        Assert.That(employee.FullName, Is.EqualTo("Иван Петров"));
     }
 
     [Test]
@@ -25,10 +31,10 @@ public class Tests
     {
         var employee = new Employee(102)
         {
-            BirthDate = DateTime.Now.AddYears(-30)
+            BirthDate = DateTime.Now.AddYears(-30),
         };
 
-        Assert.AreEqual(30, employee.Age);
+        Assert.That(employee.Age, Is.EqualTo(30));
     }
 
     [Test]
@@ -38,9 +44,9 @@ public class Tests
         var middle = new Employee(104) { BirthDate = DateTime.Now.AddYears(-35) };
         var senior = new Employee(105) { BirthDate = DateTime.Now.AddYears(-45) };
 
-        Assert.AreEqual("Junior", junior.Status);
-        Assert.AreEqual("Middle", middle.Status);
-        Assert.AreEqual("Senior", senior.Status);
+        Assert.That(junior.Status, Is.EqualTo("Junior"));
+        Assert.That(middle.Status, Is.EqualTo("Middle"));
+        Assert.That(senior.Status, Is.EqualTo("Senior"));
     }
 
     [Test]
@@ -63,8 +69,8 @@ public class Tests
         employee["телефон"] = "+7-123-456-78-90";
         employee["адрес"] = "Москва, ул. Примерная, 123";
 
-        Assert.AreEqual("+7-123-456-78-90", employee["телефон"]);
-        Assert.AreEqual("Москва, ул. Примерная, 123", employee["адрес"]);
+        Assert.That(employee["телефон"], Is.EqualTo("+7-123-456-78-90"));
+        Assert.That(employee["адрес"], Is.EqualTo("Москва, ул. Примерная, 123"));
         Assert.IsNull(employee["email"]); // Несуществующий ключ
     }
 
@@ -77,7 +83,7 @@ public class Tests
         // employee.Salary = 50000; // Приватный setter
 
         // Salary можно только читать
-        Assert.AreEqual(0, employee.Salary); // Начальное значение
+        Assert.That(employee.Salary, Is.EqualTo(0)); // Начальное значение
     }
 
     [Test]
@@ -90,5 +96,7 @@ public class Tests
         // employee.LastName = "Петров"; // Init-only
         // employee.Age = 25;          // Вычисляемое свойство
         // employee.FullName = "Test"; // Вычисляемое свойство
+        employee.EmploeeId.Should().Be(109);
+        employee.LastName.Should().Be("Иванов");
     }
 }
