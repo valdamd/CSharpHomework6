@@ -8,7 +8,7 @@ using FluentAssertions;
 using ManagmentEmploee;
 using NUnit.Framework;
 
-public class UnitTest1
+public sealed class UnitTest1
 {
     [Test]
     public void Employee_CreationAndBasicProperties_WorkCorrectly()

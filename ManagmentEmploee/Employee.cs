@@ -4,7 +4,7 @@
 
 namespace ManagmentEmploee;
 
-public sealed class Employee
+internal sealed class Employee
 {
     private readonly int emploeeId;
     private readonly decimal salary = 0;
