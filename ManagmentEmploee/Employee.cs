@@ -80,7 +80,6 @@ internal sealed class Employee
         }
     }
 
-    /// <inheritdoc/>
     public override string ToString() =>
         $"ID: {this.EmploeeId}, {this.FullName}, Возраст: {this.Age}, Статус: {this.Status}, Зарплата: {this.Salary:C}";
 
