@@ -1,8 +1,4 @@
-﻿// <copyright file="Employee.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace ManagmentEmploee;
+﻿namespace ManagmentEmploee;
 
 internal sealed class Employee
 {
